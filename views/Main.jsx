@@ -34,10 +34,11 @@ export default function Main() {
           backgroundColor: colors.WHITE,
           margin: 7,
           borderRadius: 45,
+          overflow: 'hidden',
         }}
       >
         <Title title={component.title} />
-        <View style={{ marginHorizontal: 20 }}>
+        <View style={{ marginHorizontal: 20, flex: 1 }}>
           <AnimatePresence exitBeforeEnter>
             {component.route === 'messages' && <Messages key={'c1'} />}
             {component.route === 'calls' && <Calls key={'c2'} />}

@@ -5068,6 +5068,11 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
+"moment@^2.29.4":
+  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
+  "version" "2.29.4"
+
 "moti@^0.11.0":
   "integrity" "sha512-DEqHVHZQVeYwWCWiSEIbsjqK/YL5oM8E0m5kUmbBfVhszpXkYEqguZVlbv9hwCKL4HBQc4vfja+UyA0AcCXV6A=="
   "resolved" "https://registry.npmjs.org/moti/-/moti-0.11.0.tgz"
