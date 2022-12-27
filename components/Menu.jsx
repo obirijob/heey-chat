@@ -18,7 +18,7 @@ const Menu = ({ chooseRoute }) => {
 
   const [routes, setRoutes] = useState([
     { route: 'status', icon: faCameraRetro, title: 'Status' },
-    { route: 'phone', icon: faPhone, new: 4, title: 'Phone' },
+    { route: 'calls', icon: faPhone, new: 4, title: 'Calls' },
     { route: 'messages', icon: faComment, title: 'Chats' },
     { route: 'settings', icon: faGear, title: 'Settings' },
   ])
@@ -34,7 +34,7 @@ const Menu = ({ chooseRoute }) => {
         <Pressable
           onPress={() => {
             setSelected(r.route)
-            chooseRoute(r.title)
+            chooseRoute({ title: r.title, route: r.route })
           }}
         >
           <View

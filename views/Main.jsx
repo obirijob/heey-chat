@@ -1,16 +1,32 @@
 /** @format */
 
 import React, { useState } from 'react'
-import { AnimatePresence, View, SafeAreaView } from 'moti'
+import { AnimatePresence, View, SafeAreaView, MotiView } from 'moti'
 import { Dimensions } from 'react-native'
 
 import Menu from '../components/Menu'
 import Title from '../components/Title'
 import colors from '../constants/colors'
 
+import Messages from './Messages'
+import Status from './Status'
+import Calls from './Calls'
+import Settings from './Settings'
+
 export default function Main() {
-  const [title, setTitle] = useState('Chats')
+  const [component, setComponent] = useState({
+    title: 'Chats',
+    route: 'messages',
+  })
   const { width, height } = Dimensions.get('screen')
+
+  const view_maps = {
+    messages: <Messages />,
+    status: <Status />,
+    calls: <Calls />,
+    settings: <Settings />,
+  }
+
   return (
     <AnimatePresence exitBeforeEnter>
       <View
@@ -28,10 +44,11 @@ export default function Main() {
             borderRadius: 45,
           }}
         >
-          <Title title={title} />
+          <Title title={component.title} />
+          {view_maps[component.route]}
         </SafeAreaView>
         <SafeAreaView>
-          <Menu chooseRoute={r => setTitle(r)} />
+          <Menu chooseRoute={r => setComponent(r)} />
         </SafeAreaView>
       </View>
     </AnimatePresence>

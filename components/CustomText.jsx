@@ -33,6 +33,10 @@ const CustomText = ({ style, children }) => {
     dv: require('../assets/fonts/Dancing_Script/variable.ttf'),
   })
 
+  if (!fontsLoaded) {
+    return <Text>{children}</Text>
+  }
+
   return (
     <Text style={{ ...style, fontFamily: style.fontFamily || 'mr' }}>
       {children}
