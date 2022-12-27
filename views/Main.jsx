@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react'
-import { AnimatePresence, View, SafeAreaView, MotiView } from 'moti'
+import { AnimatePresence, View, SafeAreaView } from 'moti'
 import { Dimensions } from 'react-native'
 
 import Menu from '../components/Menu'
@@ -20,37 +20,35 @@ export default function Main() {
   })
   const { width, height } = Dimensions.get('screen')
 
-  const view_maps = {
-    messages: <Messages />,
-    status: <Status />,
-    calls: <Calls />,
-    settings: <Settings />,
-  }
-
   return (
-    <AnimatePresence exitBeforeEnter>
-      <View
+    <View
+      style={{
+        backgroundColor: colors.DARK_BLUE,
+        width,
+        height,
+      }}
+    >
+      <SafeAreaView
         style={{
-          backgroundColor: colors.DARK_BLUE,
-          width,
-          height,
+          flex: 1,
+          backgroundColor: colors.WHITE,
+          margin: 7,
+          borderRadius: 45,
         }}
       >
-        <SafeAreaView
-          style={{
-            flex: 1,
-            backgroundColor: colors.WHITE,
-            margin: 7,
-            borderRadius: 45,
-          }}
-        >
-          <Title title={component.title} />
-          {view_maps[component.route]}
-        </SafeAreaView>
-        <SafeAreaView>
-          <Menu chooseRoute={r => setComponent(r)} />
-        </SafeAreaView>
-      </View>
-    </AnimatePresence>
+        <Title title={component.title} />
+        <View style={{ marginHorizontal: 20 }}>
+          <AnimatePresence exitBeforeEnter>
+            {component.route === 'messages' && <Messages key={'c1'} />}
+            {component.route === 'calls' && <Calls key={'c2'} />}
+            {component.route === 'settings' && <Settings key={'c3'} />}
+            {component.route === 'status' && <Status key={'c4'} />}
+          </AnimatePresence>
+        </View>
+      </SafeAreaView>
+      <SafeAreaView>
+        <Menu chooseRoute={r => setComponent(r)} />
+      </SafeAreaView>
+    </View>
   )
 }

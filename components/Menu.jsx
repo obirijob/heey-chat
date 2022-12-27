@@ -32,13 +32,13 @@ const Menu = ({ chooseRoute }) => {
     >
       {routes.map((r, i) => (
         <Pressable
+          key={`nav-${i}`}
           onPress={() => {
             setSelected(r.route)
             chooseRoute({ title: r.title, route: r.route })
           }}
         >
           <View
-            key={`nav-${i}`}
             animate={
               selected === r.route
                 ? { backgroundColor: colors.LIGHT_BLUE }
