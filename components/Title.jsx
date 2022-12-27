@@ -7,7 +7,7 @@ import CustomText from './CustomText'
 const Title = ({ title }) => {
   return (
     <View>
-      <CustomText>{title}</CustomText>
+      <CustomText style={{ fontSize: 30 }}>{title}</CustomText>
     </View>
   )
 }
